@@ -1,0 +1,81 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+.app-box {
+    border: 1px solid #a5a5a5;
+    border-radius: 3px;
+    background-color: #e5e5e5;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.app-table-header {
+    background-color: #555555;
+    text-transform: uppercase;
+    font-weight: bolder;
+    border-top: 1px solid #252525;
+    border-bottom: 1px solid #252525;
+    padding: 10px 0;
+    color: white;
+}
+
+.app-table-body {
+    border-bottom: 1px solid #d5d5d5;
+    padding: 5px 0;
+}
+
+.app-operation-link {
+    color: #757575;
+}
+
+.app-operation-link:hover {
+    color: #757575;
+}
+
+.app-center-parent {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.app-center-container {
+    width: 60px;
+    height: 60px;
+    font-size: 100px;
+    position: absolute;
+    color: #007bff;
+    top: 35%;
+    left: 50%;
+    margin-top: -30px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: -30px;
+    z-index: -1;
+}
+
+app-header-active {
+    background: #656565 !important;
+    color: white !important;
+    border-radius: 3px;
+}
+
+.navbar-nav a.nav-link {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.navbar-nav a.nav-link.active,
+.navbar-nav a.nav-link:hover {
+    background: #656565 !important;
+    color: white !important;
+    border-radius: 3px;
+}

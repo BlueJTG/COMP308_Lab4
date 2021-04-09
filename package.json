@@ -1,0 +1,29 @@
+{
+  "name": "TimothyGarcia_JesseGabriel_COMP308_Lab4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^1.7.0",
+    "@tensorflow/tfjs-node": "^1.7.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "csvtojson": "^2.0.8",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.10.0",
+    "method-override": "^2.3.10",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "nodemon server",
+    "dev": "nodemon server"
+  }
+}
