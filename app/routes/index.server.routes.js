@@ -22,16 +22,16 @@ module.exports = function (app) {
             gt: 0,
             lt: 1
         }).withMessage("*Learning rate must be between 0 to 1"),
-        check('sepalLength').isFloat({
+        check('sepal_length').isFloat({
             gt: 0
         }).withMessage("*Sepal length must be more than 0"),
-        check('sepalWidth').isFloat({
+        check('sepal_width').isFloat({
             gt: 0
         }).withMessage("*Sepal width must be more than 0"),
-        check('petalLength').isFloat({
+        check('petal_length').isFloat({
             gt: 0
         }).withMessage("*Petal length must be more than 0"),
-        check('petalWidth').isFloat({
+        check('petal_width').isFloat({
             gt: 0
         }).withMessage("*Petal width must be more than 0"),
     ], (req, res) => {

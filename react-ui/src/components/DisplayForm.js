@@ -11,14 +11,14 @@ function PredictionForm(props){
     const [state, submitIris] = useState({
         epochNum: "",
         learningRate: "",
-        sepalLength: "",
-        sepalWidth: "",
-        petalLength: "",
-        petalWidth: "",
+        sepal_length: "",
+        sepal_width: "",
+        petal_length: "",
+        petal_width: "",
         species: ""
     });
     const [showLoading, setShowLoading] = useState(true);
-    const apiUrl = "http://localhost:3000/predictionform";
+    const apiUrl = "http://localhost:3000/results";
 
     // define 
     const checkGuess = (resultData, userGuess) => {
@@ -28,11 +28,11 @@ function PredictionForm(props){
         let final = Math.max(val1, Math.max(val2, val3));
         let name = "";
 
-        if (final == val1) {
+        if (final === val1) {
             name = "Setosa";
-        } else if (final == val2) {
+        } else if (final === val2) {
             name = "Virginica";
-        } else if (final == val3) {
+        } else if (final === val3) {
             name = "Versicolor";
         }
 
@@ -55,7 +55,7 @@ function PredictionForm(props){
         .then(state)
         setShowLoading(false);
         props.history.push({pathname: "/results", state})
-        .catch(error => setShowLoading(false));
+        ;
     };
 
     const onChange = e => {
@@ -140,10 +140,10 @@ function PredictionForm(props){
                   }}
                   type="number"
                   step=".1"
-                  name="sepalLength"
-                  id="sepalLength"
+                  name="sepal_length"
+                  id="sepal_length"
                   placeholder="i.e. 3.9"
-                  value={state.sepalLength}
+                  value={state.sepal_length}
                   onChange={onChange}
                   required
                 />
@@ -162,10 +162,10 @@ function PredictionForm(props){
                   }}
                   type="number"
                   step=".1"
-                  name="sepalWidth"
-                  id="sepalWidth"
+                  name="sepal_width"
+                  id="sepal_width"
                   placeholder="i.e. 4.1"
-                  value={state.sepalWidth}
+                  value={state.sepal_width}
                   onChange={onChange}
                   required
                 />
@@ -185,10 +185,10 @@ function PredictionForm(props){
                   }}
                   type="number"
                   step=".1"
-                  name="petalLength"
-                  id="petalLength"
+                  name="petal_length"
+                  id="petal_length"
                   placeholder="i.e. 3.9"
-                  value={state.petalLength}
+                  value={state.petal_length}
                   onChange={onChange}
                   required
                 />
@@ -206,10 +206,10 @@ function PredictionForm(props){
                   }}
                   type="number"
                   step=".1"
-                  name="petalWidth"
-                  id="petalWidth"
+                  name="petal_width"
+                  id="petal_width"
                   placeholder="i.e. 3.9"
-                  value={state.petalWidth}
+                  value={state.petal_width}
                   onChange={onChange}
                   required
                 />
