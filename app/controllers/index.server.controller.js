@@ -12,10 +12,10 @@ exports.trainAndPredict = function (req, res) {
   console.log(irisTesting)
    let learningRate = req.body.learningRate;
     let epochNum = req.body.epochNum;
-    let sepalLength = req.body.sepalLength;
-    let sepalWidth = req.body.sepalWidth;
-    let petalLength = req.body.petalLength;
-    let petalWidth = req.body.petalWidth;
+    let sepal_length = req.body.sepal_length;
+    let sepal_width = req.body.sepal_width;
+    let petal_length = req.body.petal_length;
+    let petal_width = req.body.petal_width;
     
   const trainingData = tf.tensor2d(
     iris.map((item) => [
