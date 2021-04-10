@@ -28,9 +28,9 @@ exports.trainAndPredict = function (req, res) {
 
     const outputData = tf.tensor2d(
       iris.map((item) => [
-        item.species === "Setosa" ? 1 : 0,
-        item.species === "Virginica" ? 1 : 0,
-        item.species === "Versicolor" ? 1 : 0,
+        item.species === "setosa" ? 1 : 0,
+        item.species === "virginica" ? 1 : 0,
+        item.species === "versicolor" ? 1 : 0,
       ])
     );
     

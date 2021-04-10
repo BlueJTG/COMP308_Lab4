@@ -48,8 +48,7 @@ function PredictionForm(props){
               paddingLeft: "2vw",
               width: "50vw",
               height: "auto",
-            }}
-          >
+            }}>
             <h1>SPECIES PREDICTION FORM</h1>
             {showLoading && (
               <Spinner animation="border" role="status"></Spinner>
