@@ -7,37 +7,42 @@ require('@tensorflow/tfjs-node');
 const iris = require('../../iris.json');
 const irisTesting = require('../../iris-testing.json');
 var lossValue;
-//
+
 exports.trainAndPredict = function (req, res) {
-  console.log(irisTesting)
-   let learningRate = req.body.learningRate;
+  console.log(iris)
+    let learningRate = req.body.learningRate;
     let epochNum = req.body.epochNum;
     let sepal_length = req.body.sepal_length;
     let sepal_width = req.body.sepal_width;
     let petal_length = req.body.petal_length;
     let petal_width = req.body.petal_width;
-    
+
   const trainingData = tf.tensor2d(
     iris.map((item) => [
       item.sepal_length,
       item.sepal_width,
       item.petal_length,
       item.petal_width,
-    ]))
+    ])
+  );
+
     const outputData = tf.tensor2d(
       iris.map((item) => [
-        item.species === "setosa" ? 1 : 0,
-        item.species === "virginica" ? 1 : 0,
-        item.species === "versicolor" ? 1 : 0,
-      ]))
-      const testingData = tf.tensor2d(irisTesting.map(item =>[
-        
+        item.species === "Setosa" ? 1 : 0,
+        item.species === "Virginica" ? 1 : 0,
+        item.species === "Versicolor" ? 1 : 0,
+      ])
+    );
+    
+    const testingData = tf.tensor2d(iris.map(item =>[
             item.sepal_length,
             item.sepal_width,
             item.petal_length,
             item.petal_width,
-      ]))
-      const model = tf.sequential();
+      ])
+    );
+
+  const model = tf.sequential();
   //add the first layer
   model.add(
     tf.layers.dense({
@@ -79,10 +84,9 @@ exports.trainAndPredict = function (req, res) {
           lossValue = log.loss;
           elapsedTime = Date.now() - startTime;
           console.log('elapsed time: ' + elapsedTime)
-        }
-      }
-    }
-    )
+        },
+      },
+    });
     const results = model.predict(testingData);
 
     results.array().then(array => {
@@ -90,15 +94,16 @@ exports.trainAndPredict = function (req, res) {
       var resultForData1 = array[0];
       var resultForData2 = array[1];
       var resultForData3 = array[2];
+
       var dataToSend = {
         row1: resultForData1,
         row2: resultForData2,
         row3: resultForData3,
       }
-console.log(resultForData1);
+      console.log(resultForData1);
       res.status(200).send(dataToSend);
-    })
-  } 
+    });
+  }
   run();
 
 };

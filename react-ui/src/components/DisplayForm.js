@@ -20,33 +20,7 @@ function PredictionForm(props){
     const [showLoading, setShowLoading] = useState(true);
     const apiUrl = "http://localhost:3000/results";
 
-    // define 
-    const checkGuess = (resultData, userGuess) => {
-        let val1 = resultData[0];
-        let val2 = resultData[1];
-        let val3 = resultData[2];
-        let final = Math.max(val1, Math.max(val2, val3));
-        let name = "";
-
-        if (final === val1) {
-            name = "Setosa";
-        } else if (final === val2) {
-            name = "Virginica";
-        } else if (final === val3) {
-            name = "Versicolor";
-        }
-
-        // return message according to the guess
-        if (userGuess.toUpperCase() === name.toUpperCase()) {
-            return `Your guess ${name} is same as mine!`;
-        } else {
-            return (
-                `You guessed ${userGuess[0].toUpperCase() + userGuess.slice(1)}` +
-                `, but I think it's ${name}. You should study more!`
-            );
-        }
-    }
-
+    
     const submitForm = e =>{
         setShowLoading(true);
         e.preventDefault();
@@ -89,7 +63,7 @@ function PredictionForm(props){
                     padding: "10px 15px",
                     margin: "8px 0",
                     display: "inline-block",
-                    borderRadius: "4px",
+                    borderRadius: "2px",
                     boxSizing: "border-box",
                   }}
                   type="number"
@@ -142,7 +116,7 @@ function PredictionForm(props){
                   step=".1"
                   name="sepal_length"
                   id="sepal_length"
-                  placeholder="i.e. 3.9"
+                  placeholder="i.e. 3.5"
                   value={state.sepal_length}
                   onChange={onChange}
                   required
@@ -208,14 +182,14 @@ function PredictionForm(props){
                   step=".1"
                   name="petal_width"
                   id="petal_width"
-                  placeholder="i.e. 3.9"
+                  placeholder="i.e. 2.8"
                   value={state.petal_width}
                   onChange={onChange}
                   required
                 />
               </Form.Group>
               <br></br>
-              <Button 
+              <Button onClick={submitForm}
                 style={{
                   background: "white",
                   color: "black",
